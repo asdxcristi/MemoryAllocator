@@ -1,0 +1,54 @@
+//Bucur Ionut-Cristian,313CA
+Metoda de rezolvare a temei 3:
+Am inceput prin a declara vectorul Arena global pentru a il putea folosi mai usor in functii.
+Dupa care am declarat functii pentru comenzile cerute,care vor fi apelate printr-un "meniu" din main
+
+Functii:
+
+INITIALIZE:
+-alocam dinamic vectorul Arena de tip unsigned char de marime DimensiuneArena
+-initializam Indexul de start cu 0
+
+FINALIZE:
+-eliberam memoria alocata pentru Arena de fuctia precedenta
+
+DUMP:
+-afisam conform cerintei elementele vectorului Arena cu numerotarea din margine aferenta si cu spatiul suplimentar
+-pe ultima linie afisam marimea DimensiuneArena a arenei
+
+ALLOC:
+-am tratat aceasta functie pe cazuri:
+1.cazul in care marimea blocului de alocat este mai mare ca dimensiunea arenei
+2.cazul in care arena este goala
+3.cazul in care este spatiu intre index start si prima
+4.cazul in care este spatiu intre doua blocuri
+5.ultimul caz in care este spatiu intre ultimul bloc si sfarsitul arenei
+
+FREE:
+-eliberam blocul respectiv prin modificarea indexului urmator din blocul precedent,dar si indexului precedent din blocul urmator,sarind astfel peste blocul eliberat
+-am tratat separat cazul in care blocul este primu din arena
+
+FILL:
+-bagam valoarea value de la elemenul index din arena pana la elementul index+size
+
+SHOW:
+-am rezolvat acest set de comenzi cu ajutorul a 3 functii:
+
+$SHOWFREE:
+-verificam daca arena este goala
+-verificam daca exista spatiu intre indexul de start si primul bloc
+-parcurgem vectorul pentru a calcula numarul total de spatii goale si spatiul ocupat de acestea,dupa care le afisam
+
+$SHOWUSAGE:
+-parcurgem o data arena pentru a calcula numarul de blocuri libere
+-parcurgem inca o data arena pentru a calcula numarul de blocuri ocupate si spatiul folosit de acestea
+-calculam eficienta si fragmentarea si afisam numarul de blocuri ocupate si spatiul folosit de acestea,eficienta si fragmentarea
+
+$SHOWALLOCATIONS:
+-verificam daca exista spatiu liber intre indexul de start si primul bloc si afisam cele corespunzatoare
+-parcurgem arena si testam daca spatiile gasite intre blocuri sunt ocupate sau libere si afisam cele corespunzatoare
+-verificam daca exista spatiu liber si intre ultimul bloc si finalul arenei si afisam cele corespunzatoare
+
+
+
+P.S. Pe checkerul local imi trec cel putin testele basic,la random se impotmoleste
